@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Message } from "./message";
 
 @Injectable()
 export class MessageService {
@@ -8,18 +9,15 @@ export class MessageService {
 
     constructor(private http: HttpClient){}
 
-    verwerkVerbinding(bericht : string ){
+    verwerkVerbinding(bericht : string, tweede : string ){
         console.log("checkit"+bericht);
+        console.log("even laten zien "+ tweede);
     }
-
-    getMessages(): void {
+// POST
+    getMessages(): Observable<Message> {
         console.log("in get messages");
-        this.http.get<object[]>("https://catfact.ninja/facts")
-        .forEach(
-            h => {
-                console.log(h);
-            }
-        )
-      }
+        return this.http.get<Message>("https://catfact.ninja/facts")
+
+    }
 
 }
