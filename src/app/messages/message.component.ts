@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Message } from './message';
 import { MessageService } from './message.service'
+import { Persoon } from './persoon';
 
 @Component({
     selector:'my-messages',
@@ -12,6 +13,8 @@ export class MessageComponent{
     gebruiker : string = "vul hier in";
 
     ffkort : Message = new Message();
+
+    persoon1 : Persoon = new Persoon();
 
     constructor( private messageService : MessageService ){}
 
@@ -27,4 +30,14 @@ export class MessageComponent{
             }
         );
     }
+
+    zoekPersoon(){
+        this.messageService.getPersoon().subscribe(
+            p=>{
+                console.log(p.voornaam);
+                this.persoon1 = p;
+            }
+        );
+    }
+
 }

@@ -3,12 +3,14 @@ een message
 Jouw naam: <input [(ngModel)]="gebruiker"   ><br>
 Jouw bericht: <input [(ngModel)]="bericht">
 
-
-
+<h1>Naam Persoon: {{persoon1.voornaam}}</h1>
+<button (click)="zoekPersoon()">HaalPersoonOp</button>
 <button (click)="verstuurBericht()">verstuur bericht</button>
 
 <div *ngIf="ffkort"></div>
 {{ ffkort.first_page_url }}
 
-<div *ngFor="let feit of ffkort.data"> Er is data </div>
+<div *ngFor="let feit of ffkort.data"> 
+    {{feit.fact}}    
+</div>
 <hr>

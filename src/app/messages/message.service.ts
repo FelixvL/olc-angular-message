@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Message } from "./message";
+import { Persoon } from "./persoon";
 
 @Injectable()
 export class MessageService {
@@ -17,6 +18,11 @@ export class MessageService {
     getMessages(): Observable<Message> {
         console.log("in get messages");
         return this.http.get<Message>("https://catfact.ninja/facts")
+
+    }
+    getPersoon(): Observable<Persoon> {
+        console.log("in get messages");
+        return this.http.get<Persoon>("http://localhost:8000")
 
     }
 
