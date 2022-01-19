@@ -19,8 +19,11 @@ export class MessageComponent{
         console.log("in verstuur bericht " + this.bericht);
         this.messageService.verwerkVerbinding(this.bericht, this.gebruiker);
         this.messageService.getMessages().subscribe(
-            h => {
-                console.log(h.first_page_url);
+            jojo => {  //lambda
+                console.log("hoi");
+                jojo.first_page_url = jojo.first_page_url + " extra tekst";
+                console.log(jojo.first_page_url);
+                this.ffkort = jojo;
             }
         );
     }
