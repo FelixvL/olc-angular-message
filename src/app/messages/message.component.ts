@@ -7,9 +7,13 @@ import { MessageService } from './message.service'
     providers:[ MessageService ]
 })
 export class MessageComponent{
+    bericht : string = ""
+
     constructor( private messageService : MessageService ){}
 
     verstuurBericht(){
-        console.log("in verstuur bericht")
+        console.log("in verstuur bericht " + this.bericht);
+        this.messageService.verwerkVerbinding(this.bericht);
+
     }
 }
