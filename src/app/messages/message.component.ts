@@ -14,6 +14,6 @@ export class MessageComponent{
     verstuurBericht(){
         console.log("in verstuur bericht " + this.bericht);
         this.messageService.verwerkVerbinding(this.bericht);
-
+        this.messageService.getMessages();
     }
 }
